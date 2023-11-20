@@ -3,8 +3,12 @@ package br.aj.capital.ajCapitalWallet.model.domain;
 public class Acoes {
 	
 	private String code;
-	private String name;
+	private String nome;
 	private String descricao;
+	
+	public String toString() {
+		return String.format("Codigo *%s* - Nome da Empresa *%s* - Descricao *%s*", code, nome, descricao);
+	}
 	
 	public String getCode() {
 		return code;
@@ -12,11 +16,11 @@ public class Acoes {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 	public String getDescricao() {

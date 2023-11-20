@@ -6,6 +6,11 @@ public class Investidor {
 	private String cpf;
 	private String email;
 	
+	@Override 
+	public String toString() {
+		return String.format("Nome *%s* cpf *%s* - email *%s*", nome, cpf, email);
+	}
+	
 	
 	
 	public String getNome() {

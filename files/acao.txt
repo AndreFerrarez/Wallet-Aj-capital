@@ -1,0 +1,3 @@
+PTR4; Petrobras S/A; Petroleo e energia
+AJ17; Aj Corp S/A; Alta performance
+ITUB4; Banco Itau; Banco de varejo

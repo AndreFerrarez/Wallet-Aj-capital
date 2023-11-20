@@ -1,0 +1,3 @@
+BBAS3; Brasil seguradora S/A; Seguros; 15 ;250
+MAGL3; Magazine luiza S/A; Varejo; 3; 2500
+KLBN4; Klabin ; Celulose; 14; 1000

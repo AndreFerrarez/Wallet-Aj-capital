@@ -1,9 +1,15 @@
 package br.aj.capital.ajCapitalWallet.model.domain;
 
-public class Venda {
+public class Venda extends Acoes {
 
 	public double valorVenda;
 	public float quantidadeVenda;
+	
+	@Override
+	public String toString() {
+		return String.format("%s - Valor de Venda *%s* - Quantidade Vendida *%s* ", super.toString(), valorVenda, quantidadeVenda);
+	}
+	
 	
 	public double getValorVenda() {
 		return valorVenda;

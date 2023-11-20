@@ -1,20 +1,27 @@
 package br.aj.capital.ajCapitalWallet.model.domain;
 
-public class Compra {
+public class Compra extends Acoes {
 	
-	public double valorCompra;
-	public float quantidadeCompra;
+	public String valorCompra;
+	public String quantidadeCompra;
 	
-	public double getValorCompra() {
+	@Override
+	public String toString() {
+		
+		return String.format("%s - Valor de Compra *%s* - Quantidade comprada *%s* " , 
+				super.toString(), valorCompra, quantidadeCompra);
+	}
+	
+	public String getValorCompra() {
 		return valorCompra;
 	}
-	public void setValorCompra(double valorCompra) {
+	public void setValorCompra(String valorCompra) {
 		this.valorCompra = valorCompra;
 	}
-	public float getQuantidadeCompra() {
+	public String getQuantidadeCompra() {
 		return quantidadeCompra;
 	}
-	public void setQuantidadeCompra(float quantidadeCompra) {
+	public void setQuantidadeCompra(String quantidadeCompra) {
 		this.quantidadeCompra = quantidadeCompra;
 	}
 	
