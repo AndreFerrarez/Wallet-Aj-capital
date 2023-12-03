@@ -1,6 +1,16 @@
 package br.aj.capital.ajCapitalWallet.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TVenda")
 public class Venda extends Acoes {
+	
+
 
 	public double valorVenda;
 	public float quantidadeVenda;

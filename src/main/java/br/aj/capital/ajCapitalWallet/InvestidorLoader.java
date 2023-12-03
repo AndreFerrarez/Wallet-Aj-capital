@@ -18,39 +18,37 @@ public class InvestidorLoader implements ApplicationRunner {
 
 	@Autowired
 	private InvestidorService investidorService;
-	
+
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		
+
 		FileReader file = new FileReader("files/investidor.txt");
 		BufferedReader leitura = new BufferedReader(file);
-		
+
 		String linha = leitura.readLine();
-		
+
 		String[] campos = null;
-		
-		while (linha  != null) {
+
+		while (linha != null) {
 			campos = linha.split(";");
-			
+
 			Investidor investidor = new Investidor();
-			
+
 			investidor.setNome(campos[0]);
 			investidor.setCpf(campos[1]);
 			investidor.setEmail(campos[2]);
-			
-	
-			
+
 			investidorService.incluir(investidor);
-			
-			linha = leitura.readLine();		
+
+			linha = leitura.readLine();
 		}
-		
-		for(Investidor investidor : investidorService.obterLista()) {
+
+		for (Investidor investidor : investidorService.obterLista()) {
 			System.out.println("[Investidor] " + investidor);
 		}
-		
+
 		leitura.close();
-		
+
 	}
 
 }

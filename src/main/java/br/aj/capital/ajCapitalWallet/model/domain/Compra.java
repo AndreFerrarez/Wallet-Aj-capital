@@ -1,6 +1,12 @@
 package br.aj.capital.ajCapitalWallet.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TCompra")
 public class Compra extends Acoes {
+
 	
 	public String valorCompra;
 	public String quantidadeCompra;
@@ -11,6 +17,9 @@ public class Compra extends Acoes {
 		return String.format("%s - Valor de Compra *%s* - Quantidade comprada *%s* " , 
 				super.toString(), valorCompra, quantidadeCompra);
 	}
+	
+	
+	
 	
 	public String getValorCompra() {
 		return valorCompra;

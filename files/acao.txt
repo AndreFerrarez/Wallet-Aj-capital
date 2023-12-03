@@ -1,3 +1,2 @@
-PTR4; Petrobras S/A; Petroleo e energia
-AJ17; Aj Corp S/A; Alta performance
-ITUB4; Banco Itau; Banco de varejo
+AJ17; Aj Corp S/A; Alta performance; Andre Ferrarez; 38464142803; andre@gmail.com
+NC17; Incorporadora S/A; Incorporadores de pessoas; Aj consulting; 060504030201; consultingAj@gmail.com

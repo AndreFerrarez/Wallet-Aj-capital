@@ -2,8 +2,6 @@ package br.aj.capital.ajCapitalWallet;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -12,7 +10,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.aj.capital.ajCapitalWallet.model.domain.Venda;
-import br.aj.capital.ajCapitalWallet.model.service.CompraService;
 import br.aj.capital.ajCapitalWallet.model.service.VendaService;
 
 @Order(4)

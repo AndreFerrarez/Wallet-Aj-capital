@@ -1,24 +1,27 @@
 package br.aj.capital.ajCapitalWallet.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.aj.capital.ajCapitalWallet.model.domain.Analise;
+import br.aj.capital.ajCapitalWallet.model.repositories.AnaliseRepository;
 
 @Service
 public class AnaliseService {
 	
-	private Map<String, Analise> mapa = new HashMap<String, Analise>();
+	
+	@Autowired
+	private AnaliseRepository analiseRepository;
+
 	
 	public void incluir(Analise analise) {
-		mapa.put(analise.getAnalise(), analise);
+		analiseRepository.save(analise);
 	}
 	
 	public Collection<Analise> obterLista() {
-		return  mapa.values();
+		return (Collection<Analise>) analiseRepository.findAll();
 	}
 
 }
