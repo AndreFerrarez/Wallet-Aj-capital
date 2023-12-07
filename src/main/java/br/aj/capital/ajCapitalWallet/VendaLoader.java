@@ -9,6 +9,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.aj.capital.ajCapitalWallet.model.domain.Investidor;
 import br.aj.capital.ajCapitalWallet.model.domain.Venda;
 import br.aj.capital.ajCapitalWallet.model.service.VendaService;
 
@@ -32,16 +33,20 @@ public class VendaLoader implements ApplicationRunner{
 		
 		while (linha  != null) {
 			campos = linha.split(";");
+			
+			Investidor investidor = new Investidor();
+			investidor.setId(Integer.valueOf(campos[5].trim()));
 						
 			Venda venda = new Venda();
 			
 			venda.setCode(campos[0]);
 			venda.setNome(campos[1]);
 			venda.setDescricao(campos[2]);
-			venda.setValorVenda(Double.valueOf(campos[3]));
+			venda.setValorVenda(Float.valueOf(campos[3]));
 			venda.setQuantidadeVenda(Float.valueOf(campos[4]));
 			
-		
+			venda.setInvestidor(investidor);
+			
 			vendaService.incluir(venda);
 			
 			linha = leitura.readLine();		

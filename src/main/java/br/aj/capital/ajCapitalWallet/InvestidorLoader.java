@@ -2,6 +2,7 @@ package br.aj.capital.ajCapitalWallet;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -9,6 +10,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.aj.capital.ajCapitalWallet.model.domain.Acoes;
+import br.aj.capital.ajCapitalWallet.model.domain.Compra;
 import br.aj.capital.ajCapitalWallet.model.domain.Investidor;
 import br.aj.capital.ajCapitalWallet.model.service.InvestidorService;
 
@@ -29,26 +32,38 @@ public class InvestidorLoader implements ApplicationRunner {
 
 		String[] campos = null;
 
+		
+		
+		
 		while (linha != null) {
+			
 			campos = linha.split(";");
 
+			
 			Investidor investidor = new Investidor();
 
 			investidor.setNome(campos[0]);
 			investidor.setCpf(campos[1]);
 			investidor.setEmail(campos[2]);
-
+		
+			
 			investidorService.incluir(investidor);
-
+		
 			linha = leitura.readLine();
+		
+		
 		}
+		
 
 		for (Investidor investidor : investidorService.obterLista()) {
 			System.out.println("[Investidor] " + investidor);
 		}
 
 		leitura.close();
+		
+
 
 	}
+	
 
 }

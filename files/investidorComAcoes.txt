@@ -1,0 +1,9 @@
+Andre Ferrarez;38464142803; andre@gmail.com; PTR4; Petrobras S/A; Petroleo e energia;25;150 
+Aj Capital;010203040506; ajcapital@gmail.coc; AJ17; Aj Corp S/A; Alta performance;15;250
+Aj consulting;060504030201; consultingAj@gmail.com; ITUB4; Banco Itau; Banco de varejo;20;100
+
+
+
+
+
+

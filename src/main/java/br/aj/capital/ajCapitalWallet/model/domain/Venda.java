@@ -1,30 +1,28 @@
 package br.aj.capital.ajCapitalWallet.model.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TVenda")
+@Table(name = "T_Venda")
 public class Venda extends Acoes {
 	
 
 
-	public double valorVenda;
+	public float valorVenda;
 	public float quantidadeVenda;
 	
 	@Override
-	public String toString() {
-		return String.format("%s - Valor de Venda *%s* - Quantidade Vendida *%s* ", super.toString(), valorVenda, quantidadeVenda);
-	}
+    public String toString() {
+        return String.format("%s - Acoes vendidas: - Valor de Venda (%s) - Quantidade Vendida (%s)",
+                super.toString(), valorVenda, quantidadeVenda);
+    }
 	
 	
 	public double getValorVenda() {
 		return valorVenda;
 	}
-	public void setValorVenda(double valorVenda) {
+	public void setValorVenda(float valorVenda) {
 		this.valorVenda = valorVenda;
 	}
 	public float getQuantidadeVenda() {

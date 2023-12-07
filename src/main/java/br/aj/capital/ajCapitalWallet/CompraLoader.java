@@ -10,6 +10,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.aj.capital.ajCapitalWallet.model.domain.Compra;
+import br.aj.capital.ajCapitalWallet.model.domain.Investidor;
 import br.aj.capital.ajCapitalWallet.model.service.CompraService;
 
 @Order(3)
@@ -33,16 +34,21 @@ public class CompraLoader implements ApplicationRunner {
 		
 		while (linha  != null) {
 			campos = linha.split(";");
-						
+			
+			Investidor investidor = new Investidor();
+			investidor.setId(Integer.parseInt(campos[5].trim()));
+
+			
 			Compra compra = new Compra();
 			
 			compra.setCode(campos[0]);
 			compra.setNome(campos[1]);
 			compra.setDescricao(campos[2]);
-			compra.setValorCompra(campos[3]);
-			compra.setQuantidadeCompra(campos[4]);
+			compra.setValorCompra(Float.valueOf(campos[3]));
+			compra.setQuantidadeCompra(Float.valueOf(campos[4]));
 			
-		
+			compra.setInvestidor(investidor);
+
 			compraService.incluir(compra);
 			
 			linha = leitura.readLine();		

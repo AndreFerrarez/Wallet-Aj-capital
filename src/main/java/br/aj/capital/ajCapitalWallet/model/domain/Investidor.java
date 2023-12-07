@@ -1,39 +1,39 @@
 package br.aj.capital.ajCapitalWallet.model.domain;
 
 import java.util.Collection;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Tinvestidor")
+@Table(name = "T_Investidor")
 public class Investidor {
-	
 
 	@Id
-	@GeneratedValue(strategy =GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String nome;
 	private String cpf;
 	private String email;
+
+	
+	@OneToMany(mappedBy = "investidor", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	private List<Acoes> acoesList;
+
+	@Override
+    public String toString() {
+        return String.format("ID %d - Investidor: Nome: %s - CPF: %s - Email: %s {Lista de acoes: %s}", id, nome, cpf, email, acoesList);
+    }
 	
 
-	@OneToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name = "idInvestidor")
-	private Collection<Acoes> acoes;
-	
-	
-	@Override 
-	public String toString() {
-		return String.format("ID *%d - *Nome *%s* cpf *%s* - email *%s* - Lista acoes %s ",id, nome, cpf, email, acoes);
-	}
 	
 	public Integer getId() {
 		return id;
@@ -59,8 +59,6 @@ public class Investidor {
 		this.cpf = cpf;
 	}
 
-
-
 	public String getEmail() {
 		return email;
 	}
@@ -70,13 +68,11 @@ public class Investidor {
 	}
 
 	public Collection<Acoes> getAcoes() {
-		return acoes;
+		return acoesList;
 	}
 
-	public void setAcoes(Collection<Acoes> acoes) {
-		this.acoes = acoes;
+	public void setAcoes(Collection<Acoes> acoesList) {
+		this.acoesList = (List<Acoes>) acoesList;
 	}
 
-
-	
 }

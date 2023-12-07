@@ -1,3 +1,3 @@
-PTR4; Petrobras S/A; Petroleo e energia; 25 ;150 
-AJ17; Aj Corp S/A; Alta performance; 15; 250
-ITUB4; Banco Itau; Banco de varejo; 20; 100
+PTR4; Petrobras S/A; Petroleo e energia; 25 ;150 ;1
+AJ17; Aj Corp S/A; Alta performance; 15; 250;2
+ITUB4; Banco Itau; Banco de varejo; 20; 100;3
