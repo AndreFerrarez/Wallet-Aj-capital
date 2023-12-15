@@ -48,7 +48,7 @@ public class AcoesLoader implements ApplicationRunner {
 				investidor = new Investidor();
 				
 				investidor.setId(Integer.valueOf(campos[1]));
-				investidor.setAcoes(new ArrayList<Acoes>());
+				investidor.setAcoesList(new ArrayList<Acoes>());
 				
 				acoes = new Acoes();
 				acoes.setInvestidor(investidor);
@@ -60,21 +60,21 @@ public class AcoesLoader implements ApplicationRunner {
 				Compra compra = new Compra();
 				compra.setId(Integer.valueOf(campos[1]));
 				
-				investidor.getAcoes().add(compra);				
+				investidor.getAcoesList().add(compra);				
 				
 				break;
 			case "A":
 				Analise analise = new Analise();
 				analise.setId(Integer.valueOf(campos[1]));
 				
-				investidor.getAcoes().add(analise);				
+				investidor.getAcoesList().add(analise);				
 				
 				break;
 			case "V":
 				Venda venda = new Venda();
 				venda.setId(Integer.valueOf(campos[1]));
 				
-				investidor.getAcoes().add(venda);				
+				investidor.getAcoesList().add(venda);				
 				
 				break;
 				

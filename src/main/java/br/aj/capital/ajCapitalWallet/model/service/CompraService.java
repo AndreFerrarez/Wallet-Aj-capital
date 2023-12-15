@@ -23,6 +23,9 @@ public class CompraService {
 	public Collection<Compra> obterLista() {
 		return (Collection<Compra>) compraRepository.findAll();
 	}
-
 	
+
+	public void excluir(Integer id) {
+		compraRepository.deleteById(id);
+	}
 }

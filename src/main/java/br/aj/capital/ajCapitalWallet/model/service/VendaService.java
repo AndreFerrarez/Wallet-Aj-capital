@@ -23,5 +23,8 @@ public class VendaService {
 		return (Collection<Venda>) vendaRepository.findAll();
 	}
 
-	
+
+	public void excluir(Integer id) {
+		vendaRepository.deleteById(id);
+	}
 }

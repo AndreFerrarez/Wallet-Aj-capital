@@ -9,8 +9,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "T_Investidor")
@@ -24,13 +28,17 @@ public class Investidor {
 	private String cpf;
 	private String email;
 
+	@OneToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "idEndereco")
+	private Endereco endereco;
 	
 	@OneToMany(mappedBy = "investidor", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	@JsonBackReference
 	private List<Acoes> acoesList;
 
 	@Override
     public String toString() {
-        return String.format("ID %d - Investidor: Nome: %s - CPF: %s - Email: %s {Lista de acoes: %s}", id, nome, cpf, email, acoesList);
+        return String.format("ID %d - Investidor: Nome: %s - CPF: %s - Email: %s - Endereco: %s ", id, nome, cpf, email, endereco.getBairro());
     }
 	
 
@@ -67,12 +75,26 @@ public class Investidor {
 		this.email = email;
 	}
 
-	public Collection<Acoes> getAcoes() {
+	public Collection<Acoes> getAcoesList() {
 		return acoesList;
 	}
 
-	public void setAcoes(Collection<Acoes> acoesList) {
+	public void setAcoesList(Collection<Acoes> acoesList) {
 		this.acoesList = (List<Acoes>) acoesList;
 	}
+
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+
+	
+	
+	
 
 }

@@ -23,4 +23,8 @@ public class InvestidorService {
 	public Collection<Investidor> obterLista() {
 		return (Collection<Investidor>) investidorRepository.findAll();
 	}
+	
+	public void excluir(Integer id) {
+		investidorRepository.deleteById(id);
+	}
 }

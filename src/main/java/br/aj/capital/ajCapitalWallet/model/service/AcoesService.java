@@ -23,4 +23,8 @@ public class AcoesService {
 		return (Collection<Acoes>) acoesRepository.findAll();
 	}
 
+
+	public void excluir(Integer id) {
+		acoesRepository.deleteById(id);
+	}
 }

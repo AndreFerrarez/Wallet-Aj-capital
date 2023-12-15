@@ -24,4 +24,7 @@ public class AnaliseService {
 		return (Collection<Analise>) analiseRepository.findAll();
 	}
 
+	public void excluir(Integer id) {
+		analiseRepository.deleteById(id);
+	}
 }

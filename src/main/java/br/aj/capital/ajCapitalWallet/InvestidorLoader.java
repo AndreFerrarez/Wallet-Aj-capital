@@ -2,7 +2,6 @@ package br.aj.capital.ajCapitalWallet;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -10,9 +9,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.aj.capital.ajCapitalWallet.model.domain.Acoes;
-import br.aj.capital.ajCapitalWallet.model.domain.Compra;
+import br.aj.capital.ajCapitalWallet.model.domain.Endereco;
 import br.aj.capital.ajCapitalWallet.model.domain.Investidor;
+import br.aj.capital.ajCapitalWallet.model.service.EnderecoService;
 import br.aj.capital.ajCapitalWallet.model.service.InvestidorService;
 
 @Order(1)
@@ -21,6 +20,9 @@ public class InvestidorLoader implements ApplicationRunner {
 
 	@Autowired
 	private InvestidorService investidorService;
+	
+	@Autowired
+	private EnderecoService enderecoService;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -39,12 +41,15 @@ public class InvestidorLoader implements ApplicationRunner {
 			
 			campos = linha.split(";");
 
+			String cep = campos[3];
+			Endereco endereco =  enderecoService.buscarCep(cep);
 			
 			Investidor investidor = new Investidor();
 
 			investidor.setNome(campos[0]);
 			investidor.setCpf(campos[1]);
 			investidor.setEmail(campos[2]);
+			investidor.setEndereco(endereco);
 		
 			
 			investidorService.incluir(investidor);

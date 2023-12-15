@@ -8,9 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -26,7 +27,7 @@ public class Acoes {
 	private String descricao;
 
 	@ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
-	@JoinColumn(name = "idInvestidor")
+	@JsonBackReference
 	private Investidor investidor;
 
 	@Override
@@ -50,7 +51,7 @@ public class Acoes {
 	public void setCode(String code) {
 		this.code = code;
 	}
-
+ 
 	public String getNome() {
 		return nome;
 	}
